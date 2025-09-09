@@ -1,0 +1,42 @@
+body{
+    background-color: brown;
+    margin: 10;
+    font-style: italic;
+}
+.details{
+    margin-bottom: 23px;
+    padding-bottom: 10px;
+    border: 2px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.skills{
+    display:flex;
+   flex-direction: column;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: greenyellow;
+}
+.backend{
+    background-color: aqua;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 0 1px 4px rgba(240, 8, 8, 0.925);
+    flex: 1 1 130px;
+    min-width: 50px;
+    max-width: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+
+
+}
+.backend h3{
+    color: blue;
+    margin-top: 0;
+    flex-direction: column;
+}
+.backend p{
+ margin-bottom: 0;
+ color: blueviolet;
+}

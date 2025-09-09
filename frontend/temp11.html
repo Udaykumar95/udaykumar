@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --primary: #2d89ef;
+            --accent: #ffb900;
+            --bg: #f4f6fb;
+            --card-bg: #fff;
+            --text: #222;
+            --shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            font-family: 'montserrat',sans-serif;
+            background: var(#333);
+            color: var(--text);
+        }
+        header{
+             background: var(--primary);
+            color: #fff;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+        
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+        nav {
+            margin-top: 1rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        nav a:hover{
+            color: var(--accent);
+        }
+        .farming{
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section-title{
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .about{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .about-img {
+            flex: 1 1 180px;
+            max-width: 180px;
+            margin-right: 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(45,137,239,0.15);
+        }
+        .about-text {
+            flex: 2 1 300px;
+        }
+        .types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .type-card {
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .type-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(45,137,239,0.15);
+        }
+        .banana-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background: #eee;
+        }
+        .banana-content {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .banana-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin: 0 0 0.8rem 0;
+        }
+        .banana-desc {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #1085d3;
+        }
+        .banana-link {
+            align-self: flex-end;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        .banana-link:hover {
+            color: var(--primary);
+        }  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>banana forming</h1>
+        <p>how to growth banana </p>
+        <nav>
+            <a href="#about">about</a>
+            <a href="#types">types</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div class="farming">
+        <section id="about" class="about">
+            <div class="about-img">
+                <img src="bana.jpg" alt="no img">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title">About Me</h2>
+                <p>
+                   A banana is technically a herb, not a tree, because it lacks a hard, woody stem. What appears to be a banana tree's trunk is actually a "pseudostem" made of tightly rolled, soft leaf sheaths that grow from a corm
+                 </p>
+            </div>
+        </section>
+        <section id="types">
+            <h2 class="section-title">types</h2>
+            <div class="types">
+                <div class="type-card">
+                   <img class="banana-img" src="musa.jpg" alt="no img">
+                    <div class="banana-content">
+                        <div>
+                            <div class="banana-title">musa banana</div>
+                            <div class="banana-desc">Fruits are edible when cooked when ripe. Undergound stems are also eaten as a vegetable. Male flower clusters and inner stem are cooked and used in curries.</div>
+                        </div>
+                        <a class="banana-link" href="https://www.google.com/search?sa=X&sca_esv=ad493edfaf16cbec&rlz=1C1FHFK_enIN1104IN1104&biw=1920&bih=953&sxsrf=AE3TifOomPzX0q6GtcMtuK_AKk_nPerVKw:1757325118991&q=Musa+%C3%97+paradisiaca&stick=H4sIAAAAAAAAAONgFuLUz9U3sDAqNExW4gIxC3LTCpPLtCyzk630kzLzc_LTK_Xzi9IT8zKLc-OTcxKLizPTMpMTSzLz86xy8stTixRQBYsXsQr7lhYnKhyerlCQWJSYklmcmZicOIGNEQA8zssJbQAAAA&ved=2ahUKEwiwtOOb8siPAxUH9qACHc7QFxcQ-BZ6BAg-EAs" target="_blank">View Project</a>
+                    </div>
+                 </div>
+                <div class="type-card">
+                  <img class="banana-img" src="musella.jpg" alt="no img">
+                    <div class="banana-content">
+                        <div>
+                            <div class="banana-title">Musella banana</div>
+                            <div class="banana-desc">Musella refers to Musella lasiocarpa, commonly known as the Chinese Dwarf Banana or Golden Lotus Banana.</div>
+                        </div>
+                        <a class="banana-link" href="http://www.missouribotanicalgarden.org/" target="_blank">View Project</a>
+                    </div>  </div>
+                <div class="type-card">
+                    <img class="banana-img" src="Ensete.jpg" alt="no img">
+                    <div class="banana-content">
+                        <div>
+                            <div class="banana-title">Ensetebanana</div>
+                            <div class="banana-desc">Musella refers to Musella lasiocarpa, commonly known as the Chinese Dwarf Banana or Golden Lotus Banana.</div>
+                        </div>
+                        <a class="banana-link" href="https://www.plantdelights.com/collections/ensete?srsltid=AfmBOooe98cDdDyBb2F42XgCnV9CTjVhaxrQwlGMbqvTfqClkjiXLLsw" target="_blank">View Project</a>
+                    </div> 
+                </div>
+              </div>  
+        </section>
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <form style="background:var(--card-bg);box-shadow:var(--shadow);border-radius:8px;padding:2rem;max-width:500px;margin:0 auto;">
+                <div style="margin-bottom:1rem;">
+                    <input type="text" placeholder="Your Name" required style="width:90%;padding: 0.2rem;border-radius:2px;border:1px solid #ddd;">
+                </div>
+                <div style="margin-bottom:1rem;">
+                    <input type="name" placeholder="banana name" required style="width:100%;padding:0.7rem;border-radius:4px;border:1px solid #ddd;">
+                </div>
+                <div style="margin-bottom:1rem;">
+                    <textarea placeholder="Your Message" required style="width:100%;padding:0.7rem;border-radius:4px;border:1px solid #ddd;min-height:80px;"></textarea>
+                </div>
+                <button type="submit" style="background:var(--primary);color:#fff;padding:0.7rem 2rem;border:none;border-radius:4px;font-weight:700;cursor:pointer;transition:background 0.2s;">Send</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
