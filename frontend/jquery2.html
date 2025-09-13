@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .complete{
+            background-color: yellowgreen;
+            min-width: 8rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #add{
+            background-color: tomato;
+        }
+        .remove{
+            color: blue;
+            min-width: 8rem;
+            background-color: aquamarine;
+        }
+        body{
+            text-align: center;
+            text-shadow: 10px;
+            background: #f9fcecc2;
+
+        }
+        #input{
+            background-color: blueviolet;
+            color: turquoise;
+            text-emphasis-color: red;
+        }
+        #mylist{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <br>
+    <input type="text" id="myinput">
+    <button id="add">Add Item</button>
+    <ul id="mylist">
+        <li>task21 <button class="complete">Complete</button>  <button class='remove'>Remove</button></li>
+    </ul>
+
+    <script>
+        $(document).ready(function(){
+            $("#add").click(function(){
+                let task = $("#myinput").val();
+                if(task){
+                    $("#mylist").append("<li>" + task + " <button class='complete'>Complete</button>  <button class='remove'>remove</button></li>");
+                    $("#myinput").val('');
+                   
+                }
+            
+         $("#mylist").on("click", ".complete", function(){
+                $(this).parent().css("background-color","pink")
+            });
+
+
+          $("#mylist").on("click", ".remove", function(){
+                $(this).parent().remove();
+            });
+        });
+        });
+    </script>
+</body>
+</html>
