@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student registration</title>
+    <style>
+        header{
+            text-align: center;
+            color: rgb(255, 72, 0);
+            background-color: aquamarine;
+        }
+          .std {
+            border: 2rem solid #81e70b;
+            width: 70%;
+            height: 90%;
+            margin-top: 5%;
+            padding: 1rem;
+            background-color: rgba(21, 252, 32, 0.144);
+            justify-content: center;
+        }
+        .stdform{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-gap: 10px;
+        }
+        label{
+            color: #f70b0b;
+        }
+        input{
+            color: blueviolet;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>student registration form </h1>
+        <p>joining for collage </p>
+       
+    </header>
+    <div class="std">
+    <form class="stdform">
+        <label for="name" >name</label>
+        <input type="text" id="name" >
+        <label for="roll no">roll no</label>
+        <input type="number" id="roll no">
+        <label for="email">email</label>
+        <input type="email" id="email">
+        <label for="datetime">date</label>
+        <input type="date" id="date">
+        <label for="gender">gender</label>
+        <br>
+        <input type="radio" id="male" name="gender" value="Male" checked>Male</button>
+        <input type="radio" name="gender" value="feMale" id="female"> female </button>
+        <input type="radio" name="gender" value="others" id="others">others</button>
+        <label for="address">address</label>
+        <input type="text" name="" id="address">
+        <label for="password">password</label>
+        <input type="password" id="password">
+        <label for="confirm">confirm password</label>
+        <input type="password" name="" id="password">
+        <input type="button" value="submit">
+    </form>
+    </div>
+</body>
+</html>

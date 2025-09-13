@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IRCTC Replica</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #fff;
+      color: #1f3866;
+      font-size: 14px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    button {
+      cursor: pointer;
+    }
+    /* Container */
+    .container {
+      width: 1080px;
+      margin: 0 auto;
+    }
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      border-bottom: 1px solid #ddd;
+      font-size: 13px;
+      background: #f9f9f9;
+    }
+    header .left,
+    header .right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    header .left img.logo {
+      width: 70px;
+      height: auto;
+    }
+    header .right {
+      gap: 10px;
+      font-weight: 500;
+    }
+    header .right .btn-login {
+      background: #1f3866;
+      color: white;
+      padding: 6px 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 2px;
+    }
+    header .right .btn-login:hover {
+      background: #14294d;
+    }
+    header nav a {
+      color: #000;
+      margin: 0 6px;
+      font-weight: 500;
+      font-size: 13px;
+    }
+    header nav a.red {
+      color: red;
+    }
+    /* Top nav bar */
+    nav.top-nav {
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #ddd;
+      padding: 8px 0;
+      gap: 12px;
+      font-weight: 600;
+    }
+    nav.top-nav a {
+      color: #1f3866;
+      font-size: 14px;
+      position: relative;
+    }
+    nav.top-nav a.active {
+      font-weight: 700;
+      border-bottom: 2px solid #1f3866;
+      padding-bottom: 2px;
+    }
+    nav.top-nav a.orange {
+      color: #f36a00;
+    }
+    /* Main content layout */
+    main {
+      display: flex;
+      margin-top: 16px;
+      background: #f1f8ff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 0 5px #ccc;
+    }
+    /* Left side: form */
+    .left-side {
+      width: 40%;
+      background: white;
+      padding: 24px 18px;
+      border-radius: 4px;
+      box-shadow: 0 0 8px #cce0ff;
+    }
+    .left-side h2 {
+      text-align: center;
+      margin-bottom: 18px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1f3866;
+    }
+    .tab-buttons {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .tab-buttons button {
+      background: #1f3866;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      font-weight: bold;
+      border-radius: 2px;
+      flex: 1;
+    }
+    .tab-buttons button.inactive {
+      background: #204a86;
+    }
+    .input-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
+    .input-row input,
+    .input-row select {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #bbb;
+      border-radius: 2px;
+      font-size: 14px;
+      color: #222;
+    }
+    .input-row .date-input {
+      flex: 0.6;
+    }
+    .checkbox-group {
+      margin: 10px 0;
+      font-size: 13px;
+      color: #1f3866;
+    }
+    .checkbox-group label {
+      margin-right: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .checkbox-group input {
+      margin-right: 4px;
+      cursor: pointer;
+    }
+    .btn-search {
+      background: #ff7f27;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px 0;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 4px;
+      margin-top: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn-search:hover {
+      background: #e67322;
+    }
+    .btn-askdisha {
+      background: #ff7f27;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px 0;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 4px;
+      margin-top: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn-askdisha:hover {
+      background: #e67322;
+    }
+    .info-text {
+      font-size: 11px;
+      color: #0c539a;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .info-text a {
+      color: #0c539a;
+      font-weight: 600;
+    }
+    .info-text small {
+      color: red;
+      font-weight: 600;
+      display: block;
+      margin-top: 6px;
+    }
+    /* Right side: image */
+    .right-side {
+      flex: 1;
+      position: relative;
+      margin-left: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .right-side img.train-img {
+      max-width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 0 10px #bbb;
+    }
+    /* Safety text */
+    .safety-text {
+      position: absolute;
+      top: 18px;
+      left: 30px;
+      color: #1f3866;
+      font-weight: 700;
+      font-size: 26px;
+      text-shadow: 1px 1px 2px #ccc;
+    }
+    .safety-subtext {
+      position: absolute;
+      top: 60px;
+      left: 30px;
+      color: #1f3866;
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+    .safety-subtext span {
+      margin-right: 20px;
+      border-right: 1px solid #1f3866;
+      padding-right: 12px;
+    }
+    .safety-subtext span:last-child {
+      border: none;
+      padding-right: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left">
+      <img class="logo" src="irtcc.jpg" alt="Indian Railways Logo" />
+    
+    </div>
+    <div class="right">
+      <img src="irtcc.jpg" alt="IRCTC" width="80" />
+    </div>
+  </header>
+  <nav class="top-nav">
+    <a href="#" class="active">IRCTC EXCLUSIVE</a>
+    <a href="#" class="orange">TRAINS</a>
+    <a href="#">IRCTC eWallet</a>
+    <a href="#">HOTELS</a>
+    <a href="#">HOLIDAYS</a>
+    <a href="#">MEALS</a>
+    <a href="#">PROMOTIONS</a>
+  </nav>
+
+  <main class="container">
+    <section class="left-side">
+      <div class="tab-buttons">
+        <button>PNR STATUS</button>
+        <button class="inactive">CHARTS / VACANCY</button>
+      </div>
+      <h2>BOOK TICKET</h2>
+      <form>
+        <div class="input-row">
+          <input type="text" placeholder="From" />
+          <input type="date" class="date-input" value="2025-09-09" />
+        </div>
+        <div class="input-row">
+          <input type="text" placeholder="To" />
+          <select>
+            <option>All Classes</option>
+            <option>First Class</option>
+            <option>Second Class</option>
+            <option >Third class</option>
+          </select>
+        </div>
+        <div class="input-row">
+          <select>
+            <option>GENERAL</option>
+            <option>Tatkal</option>
+            <option>Premium Tatkal</option>
+          </select>
+        </div>
+        <div class="checkbox-group">
+          <label><input type="checkbox" /> Person With Disability Concession</label>
+          <label><input type="checkbox" /> Flexible With Date</label><br />
+          <label><input type="checkbox" /> Train with Available Berth</label>
+          <label><input type="checkbox" /> Railway Pass Concession</label>
+        </div>
+        <button class="btn-search" type="submit">Search</button>
+        <button class="btn-askdisha" type="button">Easy Booking on AskDISHA</button>
+      </form>
+      <p class="info-text">
+        Festival Round Trip Scheme: User Guide and Terms & Conditions
+        <br />
+        Customers can use enhanced interface for their IRCTC related queries!!
+        <br />
+        <a href="https://equery.irctc.co.in" target="_blank">https://equery.irctc.co.in</a>
+        <small>
+          Customer Care Numbers : Dial 14646 (Within India); Call: +91-8044647999 / +91-8035734999(Outside India)
+        </small>
+      </p>
+    </section>
+
+    <section class="right-side">
+      <h1 class="safety-text">INDIAN RAILWAYS</h1>
+      <p class="safety-subtext"><span>Safety</span><span>Security</span><span>Punctuality</span></p>
+      <img
+        class="train-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Wande_Bharat_Train_at_ICF_September_2019.jpg"
+        alt="Train"
+      />
+    </section>
+  </main>
+</body>
+</html>

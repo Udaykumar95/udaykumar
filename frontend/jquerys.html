@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    body{
+        background-color: aqua;
+    }
+</style>
+</head>
+<body>
+
+<h2>This is a heading</h2>
+
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+<br>
+
+<button>Click me to hide paragraphs</button><br>
+<br>
+<input type="text" id="myInput">
+<p id="output">Hi this text</p>
+
+<ul id="list">
+  <li>Item 1</li>
+</ul>
+<button id="add" >Add Item</button>
+<button id="remove">Remove Last</button>
+
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").text("hide paragraph");
+  });
+
+   $("#add").click(function(){
+      $("#list").append("<li>New Item appended</li>");
+      $("#add").css("background-color", "pink");
+      $("#list").css("background-color", "orange");
+    });
+    $("#remove").click(function(){
+      $("#list li:last").remove();
+      $("#remove").css("background-color", "yellow");
+    })
+
+  $("#myInput").keydown(function(){
+      let val = $("#myInput").val();
+      $("#output").text(val);
+   });
+
+
+
+
+
+});
+
+</script>
+</body>
+</html>
