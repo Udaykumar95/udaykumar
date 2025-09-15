@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Task Scheduler</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .container {
+            background-color: #add8e6;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .task-item {
+            margin-bottom: 10px;
+        }
+        .task-item button {
+            margin-left: 5px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .task-item button.delete {
+            background-color: #dc3545;
+        }
+        .task-item.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        input[type="text"] {
+            width: calc(100% - 12px);
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        button#addTask {
+            width: 100%;
+            padding: 8px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Task Scheduler</h2>
+        <ul id="taskList">
+            <li class="task-item">task1 
+                <button class="complete">complete</button>
+                <button class="delete">delete</button>
+            </li>
+            
+        </ul>
+        <input type="text" id="taskInput" placeholder="Enter new task">
+        <button id="addTask">Add Task</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#addTask').click(function() {
+                const taskText = $('#taskInput').val().trim();
+                if (taskText) {
+                    const newTask = $('<li class="task-item"></li>').text(taskText);
+                    const completeBtn = $('<button class="complete">complete</button>');
+                    const deleteBtn = $('<button class="delete">delete</button>');
+
+                    newTask.append(completeBtn).append(deleteBtn);
+                    $('#taskList').append(newTask);
+                    $('#taskInput').val('');
+                }
+            });
+
+           
+            $('#taskList').on('click', '.complete', function() {
+                $(this).parent().css("background-color","pink");
+            });
+
+           
+            $('#taskList').on('click', '.delete', function() {
+                $(this).parent().remove();
+            });
+        });
+    </script>
+</body>
+</html>
